@@ -1,7 +1,8 @@
-package com.example.rappipaytest
+package com.example.rappipaytest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rappipaytest.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
