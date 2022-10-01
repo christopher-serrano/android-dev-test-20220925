@@ -5,16 +5,18 @@ plugins {
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("org.jlleitschuh.gradle.ktlint")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    compileSdkVersion(33)
-    buildToolsVersion("30.0.3")
 
     defaultConfig {
+        buildToolsVersion = "30.0.3"
+        compileSdk = 33
+
         applicationId = "com.example.rappipaytest"
-        minSdkVersion(24)
-        targetSdkVersion(33)
+        minSdk = 24
+        targetSdk = 33
         versionCode = 1
         versionName = "0.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -30,18 +32,21 @@ android {
                 arguments["room.expandProjection"] = "true"
             }
         }
-
     }
 
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
+
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
         }
 
         create("stage") {
             // signingConfigs.getByName("debug")
             applicationIdSuffix = ".stage"
             isDebuggable = true
+
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
         }
 
         getByName("release") {
@@ -51,6 +56,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
         }
     }
 

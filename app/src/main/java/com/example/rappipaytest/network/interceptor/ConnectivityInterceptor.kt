@@ -1,4 +1,6 @@
 package com.example.rappipaytest.network.interceptor
 
-interface ConnectivityInterceptor {
+import okhttp3.Interceptor
+
+interface ConnectivityInterceptor: Interceptor {
 }
