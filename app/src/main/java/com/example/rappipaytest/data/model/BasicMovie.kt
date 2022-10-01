@@ -2,7 +2,7 @@ package com.example.rappipaytest.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BasicMovieModel(
+data class BasicMovie(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("backdrop_path")
